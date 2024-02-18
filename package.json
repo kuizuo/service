@@ -1,17 +1,42 @@
 {
   "name": "service",
-  "private": true,
   "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Kuizuo <hi@kuizuo.cn> (https://kuizuo.cn)",
+  "repository": {
+    "url": "https://github.com/kuizuo/api-service",
+    "type": "git"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@trpc/client": "^10.45.1",
+    "@trpc/server": "^10.45.1",
+    "add": "^2.0.6",
+    "mini-svg-data-uri": "^1.4.4",
     "nuxt": "^3.10.0",
+    "pnpm": "^8.15.1",
+    "trpc-nuxt": "^0.10.19",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.6.4",
+    "@bg-dev/nuxt-naiveui": "^1.10.1",
+    "@nuxtjs/color-mode": "^3.3.2",
+    "@nuxtjs/tailwindcss": "^6.11.3",
+    "eslint": "npm:eslint-ts-patch@8.56.0-0",
+    "eslint-plugin-format": "^0.1.0",
+    "eslint-ts-patch": "8.56.0-0",
+    "nuxt-module-eslint-config": "^0.1.0"
   }
 }
