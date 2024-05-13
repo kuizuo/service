@@ -21,6 +21,7 @@ export default defineAppConfig({
           primaryColorHover: _colors.teal[400],
           primaryColorPressed: _colors.teal[600],
           bodyColor: _colors.slate[800],
+          cardColor: _colors.slate[900],
         },
         Layout: {
           siderColor: _colors.slate[800],

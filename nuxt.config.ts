@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       write: true,
     },
   },
+
   build: {
     transpile: ['trpc-nuxt'],
   },

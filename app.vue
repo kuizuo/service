@@ -7,9 +7,11 @@
     </client-only>
 
     <n-dialog-provider>
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
+      <n-message-provider>
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </n-message-provider>
     </n-dialog-provider>
   </NaiveConfig>
 </template>

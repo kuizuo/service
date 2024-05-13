@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "pnpm@9.0.5",
   "author": "Kuizuo <hi@kuizuo.cn> (https://kuizuo.cn)",
   "repository": {
     "url": "https://github.com/kuizuo/api-service",
@@ -20,7 +21,7 @@
   "dependencies": {
     "@trpc/client": "^10.45.1",
     "@trpc/server": "^10.45.1",
-    "add": "^2.0.6",
+    "got": "^14.2.1",
     "mini-svg-data-uri": "^1.4.4",
     "nuxt": "^3.10.0",
     "pnpm": "^8.15.1",

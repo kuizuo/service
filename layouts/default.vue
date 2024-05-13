@@ -10,7 +10,7 @@
       style="background-position: 10px 10px;"
     />
     <n-layout
-      class="w-[--window-width] h-[--window-height] sm:min-w-[600px] max-w-[1000px] rounded-lg ring-1 ring-slate-900/5 shadow-xl"
+      class="w-[--window-width] h-[--window-height] sm:min-w-[600px] max-w-[800px] rounded-lg ring-1 ring-slate-900/5 shadow-xl"
     >
       <n-layout-header>
         <TheHeader />
