@@ -1,8 +1,9 @@
 <script lang='ts' setup>
-import type { FormInst } from 'naive-ui'
+import type { FormInst, FormItemRule } from 'naive-ui'
 import { useMessage } from 'naive-ui'
 import { services } from '~/data/service'
 
+const { $client } = useNuxtApp()
 const route = useRoute()
 const name = route.name as string
 const service = computed(() => services.find(item => `service-${item.key}` === name)!)
@@ -13,12 +14,15 @@ const model = ref({
   mobile: '',
   code: '',
 })
-
 const rules = ref({
   mobile: {
+    key: 'mobile',
     required: true,
-    trigger: ['blur', 'input'],
-    message: '请输入手机号',
+    trigger: ['input'],
+    validator: (rule: FormItemRule, value: string) => {
+      return /^(?:(?:\+|00)86)?1\d{10}$/.test(value)
+    },
+    message: '请输入正确的手机号',
   },
   code: {
     required: true,
@@ -27,24 +31,25 @@ const rules = ref({
   },
 })
 
-function sendCode() {
+const { mutate: sendCodeApi } = $client.mcdonald.sendCode.useMutation()
+async function sendCode() {
   try {
+    await formRef.value?.validate(undefined, rule => rule?.key === 'mobile')
+
+    await sendCodeApi({ mobile: model.value.mobile })
     message.success('发送成功')
   }
   catch (error) {
-    message.error(error)
+    throw new Error((error as any)?.[0]?.[0]?.message)
   }
 }
 
-function handleSumbit(e: MouseEvent) {
+async function handleSumbit(e: MouseEvent) {
   e.preventDefault()
-  formRef.value?.validate((errors) => {
-    if (!errors) {
-      console.log(model.value)
-      message.success('验证成功')
-    }
-    else { message.error('验证失败') }
-  })
+
+  await formRef.value?.validate()
+
+  await $client.mcdonald.getCoupon.mutate({ mobile: model.value.mobile, code: model.value.code })
 }
 </script>
 
@@ -66,19 +71,12 @@ function handleSumbit(e: MouseEvent) {
         label="手机号"
         path="mobile"
       >
-        <n-input-group>
-          <n-input
-            v-model:value="model.mobile"
-            placeholder="请输入手机号"
-          />
-          <n-button
-            type="primary"
-            ghost
-            @click="sendCode()"
-          >
-            获取验证码
-          </n-button>
-        </n-input-group>
+        <CountDownInput
+          v-model:value="model.mobile"
+          :count="60"
+          placeholder="请输入手机号"
+          :before-start-func="sendCode"
+        />
       </NFormItem>
       <NFormItem
         label="验证码"

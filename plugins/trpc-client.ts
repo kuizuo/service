@@ -20,3 +20,5 @@ export default defineNuxtPlugin(() => {
     },
   }
 })
+
+export type client = ReturnType<typeof createTRPCNuxtClient<AppRouter>>

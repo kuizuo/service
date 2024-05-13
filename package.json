@@ -19,8 +19,11 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@kuizuo/utils": "^0.2.0",
     "@trpc/client": "^10.45.1",
     "@trpc/server": "^10.45.1",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/nuxt": "^10.9.0",
     "got": "^14.2.1",
     "mini-svg-data-uri": "^1.4.4",
     "nuxt": "^3.10.0",
