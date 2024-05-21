@@ -12,7 +12,7 @@ function handleClickItem(item: Service) {
   <div>
     <NGrid
       x-gap="12"
-      cols="2 s:3 l:4"
+      cols="2 l:3"
       responsive="screen"
     >
       <NGi
@@ -21,13 +21,17 @@ function handleClickItem(item: Service) {
       >
         <NCard
           size="small"
+          class="h-full"
         >
           <template #cover>
-            <img
-              class="cursor-pointer"
-              :src="item.logo"
-              @click="handleClickItem(item)"
-            >
+            <div class="cursor-pointer h-[150px]">
+              <img
+                class="w-full h-full overflow-hidden object-contain"
+                :src="item.logo"
+                :alt="item.title"
+                @click="handleClickItem(item)"
+              >
+            </div>
           </template>
           <template #header>
             <h2
