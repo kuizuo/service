@@ -14,6 +14,10 @@ const model = ref({
   mobile: '',
   code: '',
 })
+
+const loading = ref(false)
+const result = ref<any | null>(null)
+
 const rules = ref({
   mobile: {
     key: 'mobile',
@@ -31,25 +35,38 @@ const rules = ref({
   },
 })
 
-const { mutate: sendCodeApi } = $client.mcdonald.sendCode.useMutation()
 async function sendCode() {
   try {
     await formRef.value?.validate(undefined, rule => rule?.key === 'mobile')
 
-    await sendCodeApi({ mobile: model.value.mobile })
+    await $client.moji.sendCode.mutate({ mobile: model.value.mobile })
+
     message.success('发送成功')
   }
   catch (error) {
-    throw new Error((error as any)?.[0]?.[0]?.message)
+    message.error((error as any).message)
   }
 }
 
 async function handleSumbit(e: MouseEvent) {
   e.preventDefault()
+  loading.value = true
 
   await formRef.value?.validate()
 
-  await $client.mcdonald.getCoupon.mutate({ mobile: model.value.mobile, code: model.value.code })
+  try {
+    const data = await $client.moji.getCoupon.mutate({ mobile: model.value.mobile, code: model.value.code })
+
+    result.value = data
+
+    message.success('领券成功,请到麦当劳小程序中查看')
+  }
+  catch (error) {
+    message.error((error as any).message)
+  }
+  finally {
+    loading.value = false
+  }
 }
 </script>
 
@@ -63,9 +80,7 @@ async function handleSumbit(e: MouseEvent) {
       label-width="auto"
       require-mark-placement="right-hanging"
       size="small"
-      :style="{
-        maxWidth: '640px',
-      }"
+      class="max-w-sm"
     >
       <NFormItem
         label="手机号"
@@ -90,11 +105,21 @@ async function handleSumbit(e: MouseEvent) {
       <div class="flex justify-center">
         <NButton
           type="primary"
+          :loading="loading"
+          :disabled="!(model.mobile && model.code)"
           @click="handleSumbit"
         >
           登录并领券
         </NButton>
       </div>
     </NForm>
+    <NAlert
+      v-if="result"
+      title="领取结果"
+      type="success"
+      :bordered="false"
+    >
+      {{ result }}
+    </NAlert>
   </ServiceCard>
 </template>

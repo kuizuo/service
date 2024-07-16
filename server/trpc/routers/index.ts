@@ -1,8 +1,8 @@
 import { router } from '../trpc'
-import { McdonaldRouter } from './mcdonald'
+import { MojiRouter } from './moji'
 
 export const appRouter = router({
-  mcdonald: McdonaldRouter,
+  moji: MojiRouter,
 })
 
 export type AppRouter = typeof appRouter

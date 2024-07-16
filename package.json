@@ -28,6 +28,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "nuxt": "^3.10.0",
     "pnpm": "^8.15.1",
+    "tough-cookie": "^4.1.4",
     "trpc-nuxt": "^0.10.19",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5",
@@ -38,9 +39,11 @@
     "@bg-dev/nuxt-naiveui": "^1.10.1",
     "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/tailwindcss": "^6.11.3",
+    "@types/tough-cookie": "^4.0.5",
     "eslint": "npm:eslint-ts-patch@8.56.0-0",
     "eslint-plugin-format": "^0.1.0",
     "eslint-ts-patch": "8.56.0-0",
-    "nuxt-module-eslint-config": "^0.1.0"
+    "nuxt-module-eslint-config": "^0.1.0",
+    "vitest": "^2.0.3"
   }
 }
