@@ -1,75 +1,38 @@
-# Nuxt 3 Minimal Starter
+# 便民服务
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+本项目旨在创建一系列的便民服务工具和功能，以提高使用者日常生活中的便利性。
 
-## Setup
+## 技术栈
 
-Make sure to install the dependencies:
+- Nuxt
+- Naive UI
+- Tailwindcss
+- Trpc
+- [Got](https://github.com/sindresorhus/got) (**我用过 Node 最好用的 Http 请求库，爬虫必备！**)
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## 运行
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
+pnpm i
 pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+访问 http://localhost:3000 查看效果
 
-Build the application for production:
+## 这个项目有什么用？
 
-```bash
-# npm
-npm run build
+利用全栈框架的特性，不用再编写传统前后端分离的开发形态。
 
-# pnpm
-pnpm run build
+你可以将其用于领券、打卡等你想要摆脱原有的宿主机（移动设备，小程序)的方式，这样用户只需要通过浏览器来完成者一系列复杂操作，当然这背后的逻辑实现也是需要你去攻克的。
 
-# yarn
-yarn build
+项目初衷👉 [模拟请求|协议复现方案](https://kuizuo.cn/blog/request-protocol-scheme)
 
-# bun
-bun run build
-```
+## 已有项目
 
-Locally preview production build:
+某迹天气 - 领取一杯麦当劳雪碧
 
-```bash
-# npm
-npm run preview
+...
 
-# pnpm
-pnpm run preview
+## 项目声明
 
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+**本项目仅用于学习研究使用，请勿将本项目的任何内容用于商业或非法目的，否则后果自负。如该项目涉及到贵司利益，请联系我立马删除。**
