@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@9.0.4",
+  "packageManager": "pnpm@9.5.0",
   "author": "Kuizuo <hi@kuizuo.cn> (https://kuizuo.cn)",
   "repository": {
     "url": "https://github.com/kuizuo/service",
@@ -27,7 +27,6 @@
     "got": "^14.2.1",
     "mini-svg-data-uri": "^1.4.4",
     "nuxt": "^3.10.0",
-    "pnpm": "^8.15.1",
     "tough-cookie": "^4.1.4",
     "trpc-nuxt": "^0.10.22",
     "vue": "^3.4.15",

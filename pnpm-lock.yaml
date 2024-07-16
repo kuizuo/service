@@ -32,9 +32,6 @@ importers:
       nuxt:
         specifier: ^3.10.0
         version: 3.10.1(@parcel/watcher@2.4.0)(@types/node@20.11.16)(encoding@0.1.13)(eslint-ts-patch@8.56.0-0)(optionator@0.9.3)(rollup@4.9.6)(terser@5.27.0)(typescript@5.3.3)(vite@5.0.12(@types/node@20.11.16)(terser@5.27.0))
-      pnpm:
-        specifier: ^8.15.1
-        version: 8.15.1
       tough-cookie:
         specifier: ^4.1.4
         version: 4.1.4
@@ -3656,11 +3653,6 @@ packages:
   pluralize@8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
-
-  pnpm@8.15.1:
-    resolution: {integrity: sha512-gxz0xfi4N0r3FSHU0VPbSdcIbeYVwq98tenX64umMN2sRv6kldZD5VLvLmijqpmj5en77oaWcClnUE31xZyycw==}
-    engines: {node: '>=16.14'}
-    hasBin: true
 
   portfinder@1.0.32:
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}
@@ -9172,8 +9164,6 @@ snapshots:
       pathe: 1.1.2
 
   pluralize@8.0.0: {}
-
-  pnpm@8.15.1: {}
 
   portfinder@1.0.32:
     dependencies:
