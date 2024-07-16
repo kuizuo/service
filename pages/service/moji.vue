@@ -17,6 +17,7 @@ const model = ref({
 
 const loading = ref(false)
 const result = ref<any | null>(null)
+const showHelp = ref(false)
 
 const rules = ref({
   mobile: {
@@ -71,7 +72,10 @@ async function handleSumbit(e: MouseEvent) {
 </script>
 
 <template>
-  <ServiceCard :service="service">
+  <ServiceCard
+    :service="service"
+    class="relative"
+  >
     <NForm
       ref="formRef"
       :model="model"
@@ -113,6 +117,14 @@ async function handleSumbit(e: MouseEvent) {
         </NButton>
       </div>
     </NForm>
+
+    <NButton
+      type="info"
+      @click="showHelp = true"
+    >
+      点我查看如何下单
+    </NButton>
+
     <NAlert
       v-if="result"
       title="领取结果"
@@ -121,5 +133,22 @@ async function handleSumbit(e: MouseEvent) {
     >
       {{ result }}
     </NAlert>
+
+    <NDrawer
+      v-model:show="showHelp"
+      :width="400"
+      placement="right"
+    >
+      <NDrawerContent
+        title="使用说明"
+        :native-scrollbar="false"
+        body-content-class="!p-0"
+        closable
+      >
+        <n-image
+          src="https://html5.moji.com/tpd/moji35plan2024/index/images/success1.6b19636e37920186ffa592ce3dbe1891.png"
+        />
+      </NDrawerContent>
+    </NDrawer>
   </ServiceCard>
 </template>
