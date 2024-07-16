@@ -44,9 +44,17 @@ function handleBack() {
               {{ service.title }}
             </span>
           </div>
-          <div
-            class="min-w-4 inline-block cursor-pointer select-none transition duration-200 ease-in-out"
-          />
+          <a
+            v-if="service.relatedLink"
+            target="_blank"
+            class="flex"
+            :href="service.relatedLink"
+          >
+            <NaiveIcon
+              name="lucide:external-link"
+              class="min-w-4 inline-block cursor-pointer select-none transition duration-200 ease-in-out"
+            />
+          </a>
         </div>
       </template>
     </div>
